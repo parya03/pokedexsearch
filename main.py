@@ -14,6 +14,8 @@ import unittest
 api_response = ""
 pokemon_name = ""
 
+narrow_down_attribute = ""
+
 api_response_attributes =[]
 
 pokemon_storage = pokemon.Pokemon()
@@ -41,6 +43,7 @@ def ui_start():
     def narrow_down_button_handle():
         global api_response
         global api_response_attributes
+        global narrow_down_attribute
 
         narrow_down_attribute_index = pokemon_narrow_entry.get() #Should be integer >= 1
         narrow_down_attribute = api_response_attributes[int(narrow_down_attribute_index)-1]
@@ -57,7 +60,7 @@ def ui_start():
         #     #results_label.config(text=results_label.cget("text") + '\n' + str(i) + ". " + narrow_down_attribute_value["name"])
         #     i += 1
 
-        return narrow_down_text  # If everything went well, should return 1
+        return narrow_down_text
 
     global pokemon_name
     global api_response
@@ -104,6 +107,11 @@ def ui_start():
     # canvas.config(yscrollcommand=scrollbar.set)
 
     root.mainloop()
+    
+    z = 0
+    if api_response != None and narrow_down_attribute != None: #For testiing purposes
+        z = 1
+    return z
 
 ui_start() #Handle UI Stuff
 
