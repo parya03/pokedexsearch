@@ -8,6 +8,8 @@ import tkinter as tk
 from tkinter import ttk
 import pokemon
 import pokedex
+import testing
+import unittest
 
 api_response = ""
 pokemon_name = ""
@@ -34,6 +36,7 @@ def ui_start():
             i+=1
         pokemon_storage.store_json_as_dict(api_response)
         print(api_response)
+        return api_response
 
     def narrow_down_button_handle():
         global api_response
@@ -53,6 +56,8 @@ def ui_start():
         # #for narrow_down_attribute_value in api_response[narrow_down_attribute]:
         #     #results_label.config(text=results_label.cget("text") + '\n' + str(i) + ". " + narrow_down_attribute_value["name"])
         #     i += 1
+
+        return narrow_down_text  # If everything went well, should return 1
 
     global pokemon_name
     global api_response
